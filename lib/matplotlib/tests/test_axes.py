@@ -1,8 +1,9 @@
 import numpy as np
 from numpy import ma
 import matplotlib
-from matplotlib.testing.decorators import image_comparison, knownfailureif
+from matplotlib.testing.decorators import image_comparison, cleanup
 import matplotlib.pyplot as plt
+from numpy.ma.testutils import assert_equal
 
 
 @image_comparison(baseline_images=['formatter_ticker_001',
@@ -812,6 +813,15 @@ def test_boxplot():
     ax.boxplot([x, x], bootstrap=10000, usermedians=[None, 1.0],
                conf_intervals=[None, (-1.0, 3.5)], notch=1)
     ax.set_ylim((-30, 30))
+
+
+@cleanup
+def test_subplot_key_hash():
+    ax = plt.subplot(np.float64(5.5), np.int64(1), np.float64(1.2))
+    # used to raise an exception, and mis-handle the 5.5
+    ax.twinx()
+    assert_equal((5, 1, 0, None), ax.get_subplotspec().get_geometry())
+
 
 if __name__=='__main__':
     import nose

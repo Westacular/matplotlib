@@ -1242,7 +1242,6 @@ class Stack(object):
         raise *o* to the top of the stack and return *o*.  *o* must be
         in the stack
         """
-
         if o not in self._elements:
             raise ValueError('Unknown element o')
         old = self._elements[:]

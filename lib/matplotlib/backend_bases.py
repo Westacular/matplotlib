@@ -2414,7 +2414,7 @@ class FigureManagerBase:
         self.num = num
 
         self.canvas.mpl_connect('key_press_event', self.key_press)
-
+                
     def destroy(self):
         pass
 

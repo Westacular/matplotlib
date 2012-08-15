@@ -650,6 +650,8 @@ class Figure(Artist):
             # to tuples for the key
             ret = []
             for k, v in items:
+                if hasattr(v, 'dtype'):
+                    v = np.asscalar(v)
                 if iterable(v): v = tuple(v)
                 ret.append((k,v))
             return tuple(ret)
@@ -657,6 +659,8 @@ class Figure(Artist):
         def fixlist(args):
             ret = []
             for a in args:
+                if hasattr(a, 'dtype'):
+                    a = np.asscalar(a)
                 if iterable(a): a = tuple(a)
                 ret.append(a)
             return tuple(ret)

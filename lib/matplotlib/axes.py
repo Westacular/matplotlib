@@ -7574,7 +7574,6 @@ class Axes(martist.Artist):
             For those who are 'picking' artists while using twinx, pick
             events are only called for the artists in the top-most axes.
         """
-
         ax2 = self.figure.add_axes(self.get_position(True), sharex=self,
             frameon=False)
         ax2.yaxis.tick_right()
@@ -8666,8 +8665,6 @@ class SubplotBase:
         # _axes_class is set in the subplot_class_factory
         self._axes_class.__init__(self, fig, self.figbox, **kwargs)
 
-
-
     def get_geometry(self):
         """get the subplot geometry, eg 2,2,3"""
         rows, cols, num1, num2 = self.get_subplotspec().get_geometry()
@@ -8694,7 +8691,6 @@ class SubplotBase:
         self.figbox, self.rowNum, self.colNum, self.numRows, self.numCols = \
                      self.get_subplotspec().get_position(self.figure,
                                                          return_all=True)
-
 
     def is_first_col(self):
         return self.colNum==0
