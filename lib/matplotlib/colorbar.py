@@ -267,6 +267,7 @@ class ColorbarBase(cm.ScalarMappable):
                  filled=True,
                  extendfrac=None,
                  extendrect=False,
+                 label='',
                  ):
         self.ax = ax
         self._patch_ax()
