@@ -751,6 +751,22 @@ See rcParams.keys() for a list of valid parameters.' % (key,))
         Return values in order of sorted keys.
         """
         return [self[k] for k in self.iterkeys()]
+    
+    def find_all(self, key_contains):
+        """
+        Return the subset of this RcParams dictionary for which the given
+        ``key_contains`` string is found somewhere in the key.
+
+        .. note::
+        
+            Changes to the returned dictionary are *not* propagated to
+            the parent RcParams dictionary.
+
+        """
+        return RcParams((key, value)
+                        for key, value in self.items()
+                        if key_contains in key)
+
 
 def rc_params(fail_on_error=False):
     'Return the default params updated from the values in the rc file'
