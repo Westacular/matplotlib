@@ -93,6 +93,21 @@ Andrew Dawson added the ability to add axes titles flush with the left and
 right sides of the top of the axes using a new keyword argument `loc` to
 :func:`~matplotlib.pyplot.title`.
 
+Quickly find rcParams
+---------------------
+Phil Elson made it easier to search for rcParameters by passing a
+valid regular expression to :func:`matplotlib.RcParams.find_all`.
+:class:`matplotlib.RcParams` now also has a pretty repr and str representation
+so that search results are printed prettily:
+
+    >>> import matplotlib
+    >>> print(matplotlib.rcParams.find_all('\.size'))
+    RcParams({'font.size': 12,
+              'xtick.major.size': 4,
+              'xtick.minor.size': 2,
+              'ytick.major.size': 4,
+              'ytick.minor.size': 2}) 
+
 .. _whats-new-1-2:
 
 new in matplotlib-1.2
