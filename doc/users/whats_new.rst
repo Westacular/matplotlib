@@ -95,8 +95,9 @@ right sides of the top of the axes using a new keyword argument `loc` to
 
 Full control of the background color
 ------------------------------------
-Phil Elson fixed the Agg backend such that PNGs are now saved with the correct
-background color when :meth:`fig.patch.get_alpha` is not 1.
+Phil Elson and Wes Campaigne fixed the Agg backend such that PNGs are now
+saved with the correct background color when :meth:`fig.patch.get_alpha` is
+not 1.
 
 .. _whats-new-1-2:
 
